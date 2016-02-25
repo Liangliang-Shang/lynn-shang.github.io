@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Config Local Git Config $ git config --global user.name &#34;Lynn-Shang&#34; $ git config --global user.email &#34;imshang@126.com&#34; $ git config --list user.name=Lynn-Shang user.email=imshang@126.com 20160219 ...">
+        <meta name="keywords" content="Git, GitHub, Linux">
+        <link rel="icon" href="/favicon.ico">
+
+        <title>Best Practice of Git/GitHub - lshang</title>
+
+        <!-- Stylesheets -->
+        <link href="/theme/css/all.min.css" rel="stylesheet">
+        <!-- /Stylesheets -->
+
+        <!-- RSS Feeds -->
+        <!-- /RSS Feeds -->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+    </head>
+
+    <body>
+
+        <!-- Header -->
+    <div class="header-container gradient">
+
+            <!-- Static navbar -->
+            <div class="container">
+                <div class="header-nav">
+                    <div class="header-logo">
+                        <a class="pull-left" href="/"><img class="mr20" src="/logo.svg" alt="">lshang</a>
+                    </div>
+                    <div class="nav pull-right">
+                                <a href="/">Homepage</a>
+                                <a href="/categories.html">Categories</a>
+                                <a href="/tags.html">Tags</a>
+                                <a href="/archives.html">Archives</a>
+                                <a href="/about.html">About</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Static navbar -->
+
+            <!-- Header -->
+    <!-- Header -->
+    <div class="container header-wrapper">
+        <div class="row">
+              <div class="col-lg-12">
+                  <div class="header-content">
+                      <h1 class="header-title">Best Practice of Git/GitHub</h1>
+                      <p class="header-date">By <a href="/author/lshang.html">lshang</a>, Fri 19 February 2016, in category <a href="/category/linux.html">Linux</a></p>
+                      <div class="header-underline"></div>
+                      <div class="clearfix"></div>
+                      <p class="pull-right header-tags">
+                          <span class="glyphicon glyphicon-tags mr5" aria-hidden="true"></span>
+<a href="/tag/git.html">Git</a>, <a href="/tag/github.html">GitHub</a>, <a href="/tag/linux.html">Linux</a>                      </p>
+                  </div>
+              </div>
+        </div>
+    </div>
+    <!-- /Header -->
+            <!-- /Header -->
+
+        </div>
+        <!-- /Header -->
+
+
+        <!-- Content -->
+    <div class="container content">
+        <h2>Config</h2>
+<ul>
+<li><strong>Local Git Config</strong>  </li>
+</ul>
+<div class="highlight"><pre>$ git config --global user.name <span class="s2">&quot;Lynn-Shang&quot;</span>
+$ git config --global user.email <span class="s2">&quot;imshang@126.com&quot;</span>
+$ git config --list
+user.name<span class="o">=</span>Lynn-Shang
+user.email<span class="o">=</span>imshang@126.com
+<span class="m">20160219</span> 22:19:34 lshang@elemos:/home/lshang 
+$ cat .gitconfig 
+<span class="o">[</span>user<span class="o">]</span>
+    <span class="nv">name</span> <span class="o">=</span> Lynn-Shang
+    <span class="nv">email</span> <span class="o">=</span> imshang@126.com
+</pre></div>
+
+
+<ul>
+<li><strong>Generate ssh rsa key</strong></li>
+</ul>
+<div class="highlight"><pre><span class="m">20160219</span> 22:47:36 lshang@elemos:/home/lshang 
+$ ssh-keygen -t rsa -C <span class="s2">&quot;imshang@126.com&quot;</span>
+<span class="m">20160220</span> 10:40:02 lshang@elemos:/home/lshang 
+$ ls -larth .ssh
+total 20K
+-rw-r--r--  <span class="m">1</span> lshang lshang  <span class="m">397</span> Feb <span class="m">13</span> 16:12 id_rsa.pub
+-rw-------  <span class="m">1</span> lshang lshang 1.8K Feb <span class="m">13</span> 16:12 id_rsa
+drwx------  <span class="m">2</span> lshang lshang 4.0K Feb <span class="m">13</span> 16:17 .
+-rw-r--r--  <span class="m">1</span> lshang lshang 2.2K Feb <span class="m">16</span> 21:35 known_hosts
+drwxr-xr-x <span class="m">32</span> lshang lshang 4.0K Feb <span class="m">20</span> 10:39 ..
+</pre></div>
+
+
+<ul>
+<li><strong>Add ssh rsa pub key to GitHub</strong><br />
+GitHub -&gt; Settings -&gt; SSH keys -&gt; New SSH key -&gt;<br />
+Title: <em>title</em><br />
+Key: <em>text from id_rsa.pub</em></li>
+</ul>
+<h2>Enable automatically push</h2>
+<p>Command: git remote -v shows that we are using https</p>
+<div class="highlight"><pre>$ git remote -v
+master  https://github.com/Lynn-Shang/lynn-shang.github.io <span class="o">(</span>fetch<span class="o">)</span>
+master  https://github.com/Lynn-Shang/lynn-shang.github.io <span class="o">(</span>push<span class="o">)</span>
+origin  https://github.com/Lynn-Shang/lynn-shang.github.io <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://github.com/Lynn-Shang/lynn-shang.github.io <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+
+
+<p>Now switch to ssh</p>
+<div class="highlight"><pre>$ git remote rm origin
+$ git remote add origin git@github.com:lynn-shang/lynn-shang.github.io
+$ git push
+</pre></div>
+
+
+<h2>Reference</h2>
+<p><a href="http://gitref.org/index.html">Git Reference</a></p>
+
+
+        
+    </div>
+        <!-- /Content --> 
+
+        <!-- Footer -->
+        <div class="footer gradient-2">
+            <div class="container footer-container ">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                        <div class="footer-title">Sitemap</div>
+                        <ul class="list-unstyled">
+                            <li><a href="/archives.html">Archives</a></li>
+                            <li><a href="/tags.html">Tags</a></li>
+                            <li><a href="/authors.html">Authors</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                        <div class="footer-title">Social</div>
+                        <ul class="list-unstyled">
+                            <li><a href="http://www.linkedin.com/in/lynn-shang-b587507b?trk=hp-identity-name" target="_blank">Linkedin</a></li>
+                            <li><a href="https://github.com/Lynn-Shang" target="_blank">GitHub</a></li>
+                            <li><a href="mailto:imshang@126.com" target="_blank">Email</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                        <div class="footer-title">Links</div>
+                        <ul class="list-unstyled">
+                            <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+                            <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+                            <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+                        </ul>
+                    </div> 
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <p class="pull-right text-right">
+                            <small><em>Proudly powered by <a href="http://docs.getpelican.com/" target="_blank">pelican</a></em></small><br/>
+                            <small><em>Theme and code by <a href="https://github.com/molivier" target="_blank">molivier</a></em></small><br/>
+                            <small>&copy; lshang 2016</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Footer -->
+    </body>
+</html>

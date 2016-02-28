@@ -18,12 +18,12 @@ Hi! My name is Shang, Liangliang.
 
 Skill Set:  
 
+- Python/Perl  
 - Git/GitHub  
 - Linux/UNIX/Shell  
-- Python/Perl  
 - Apache HTTP Server  
 - MarkDown  
-- MySQL/Oracle DB  
+- MySQL/Oracle DB/SQLite3  
 - Java
 
 Contact Me:

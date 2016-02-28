@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="#!/usr/bin/env python import sqlite3 conn = sqlite3.connect(&#34;example.db&#34;) curs = conn.cursor() curs.execute(&#34;DROP TABLE ids&#34;) curs.execute(&#34;CREATE TABLE ids (id INTEGER PRIMARY KEY ...">
+        <meta name="description" content="#!/usr/bin/env python # -*- coding: utf-8 -*- import sqlite3 # database = &#34;example.db&#34; # -&gt; a file that resides on FS # database = &#34;:memory:&#34; # -&gt; a database that resides in RAM database = ...">
         <meta name="keywords" content="DB, Python, SQL, SQLite">
         <link rel="icon" href="/favicon.ico">
 
@@ -76,28 +76,88 @@
         <!-- Content -->
     <div class="container content">
         <div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
 <span class="kn">import</span> <span class="nn">sqlite3</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;example.db&quot;</span><span class="p">)</span>
-<span class="n">curs</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="n">curs</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE ids&quot;</span><span class="p">)</span>
+<span class="c1"># database    = &quot;example.db&quot;      # -&gt; a file that resides on FS</span>
+<span class="c1"># database    = &quot;:memory:&quot;        # -&gt; a database that resides in RAM</span>
+<span class="n">database</span>    <span class="o">=</span> <span class="s2">&quot;:memory:&quot;</span>
+<span class="n">connection</span>  <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
+<span class="n">cursor</span>      <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 
-<span class="n">curs</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE ids (id INTEGER PRIMARY KEY AUTOINCREMENT)&quot;</span><span class="p">)</span>
-<span class="n">curs</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO ids VALUES (NULL)&quot;</span><span class="p">)</span>
-<span class="n">curs</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO ids VALUES (NULL)&quot;</span><span class="p">)</span>
-<span class="n">curs</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO ids VALUES (NULL)&quot;</span><span class="p">)</span>
-<span class="n">curs</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO ids VALUES (NULL)&quot;</span><span class="p">)</span>
+<span class="n">sql_crt_tab_users</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;CREATE TABLE users (</span>
+<span class="s1">    id INTEGER PRIMARY KEY AUTOINCREMENT, </span>
+<span class="s1">    user char(10) NOT NULL, </span>
+<span class="s1">    age SMALLINT</span>
+<span class="s1">)</span>
+<span class="s1">&#39;&#39;&#39;</span>
 
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">curs</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM ids&quot;</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">row</span>
-</pre></div>
+<span class="n">sql_add_user</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;INSERT INTO users VALUES (</span>
+<span class="s1">    NULL, </span>
+<span class="s1">    ?, </span>
+<span class="s1">    ?</span>
+<span class="s1">)</span>
+<span class="s1">&#39;&#39;&#39;</span>
 
+<span class="n">sql_get_user</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT * FROM users&#39;&#39;&#39;</span>
+<span class="n">sql_del_user</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;DELETE FROM users&#39;&#39;&#39;</span>
 
-<div class="highlight"><pre>$ python sqlite.py 
-<span class="o">(</span>1,<span class="o">)</span>
-<span class="o">(</span>2,<span class="o">)</span>
-<span class="o">(</span>3,<span class="o">)</span>
-<span class="o">(</span>4,<span class="o">)</span>
+<span class="k">def</span> <span class="nf">getAllUsers</span><span class="p">():</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_get_user</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">%8d</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%3s</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+
+<span class="k">def</span> <span class="nf">delAllUsers</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span> 
+        <span class="n">sql</span> <span class="o">=</span> <span class="n">sql_del_user</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39; WHERE id = &#39;&#39;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">sql</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+<span class="c1"># a shortcut for cursor.execute(sql)</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_crt_tab_users</span><span class="p">)</span>
+
+<span class="c1"># add one user with placeholders </span>
+<span class="n">userA</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: Adding user </span><span class="si">%s</span><span class="s2">, age </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">userA</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="n">userA</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_add_user</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+<span class="k">print</span><span class="p">((</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: </span><span class="si">%d</span><span class="s2"> row(s) impacted!&quot;</span><span class="p">)</span> 
+    <span class="o">%</span> <span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: All users&quot;</span> <span class="o">%</span> <span class="n">database</span><span class="p">)</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">getAllUsers</span><span class="p">()</span>
+
+<span class="c1"># add three users one time</span>
+<span class="n">users</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;44&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)]</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: Adding users </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="n">users</span><span class="p">))</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="n">sql_add_user</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>
+<span class="k">print</span><span class="p">((</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: </span><span class="si">%d</span><span class="s2"> row(s) impacted!&quot;</span><span class="p">)</span> 
+    <span class="o">%</span> <span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: All users&quot;</span> <span class="o">%</span> <span class="n">database</span><span class="p">)</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">getAllUsers</span><span class="p">()</span>
+
+<span class="n">userUnknown</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;unknown&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: Adding user </span><span class="si">%s</span><span class="s2">, age </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> 
+    <span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">userUnknown</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">userUnknown</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_add_user</span><span class="p">,</span> <span class="n">userUnknown</span><span class="p">)</span>
+<span class="k">print</span><span class="p">((</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: </span><span class="si">%d</span><span class="s2"> row(s) impacted!&quot;</span><span class="p">)</span> 
+    <span class="o">%</span> <span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">((</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: All users before commit&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">database</span><span class="p">)</span>
+<span class="n">getAllUsers</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">((</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: Rolling back...&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">database</span><span class="p">)</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+<span class="k">print</span><span class="p">((</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: All users after rolling back&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">database</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: All users&quot;</span> <span class="o">%</span> <span class="n">database</span><span class="p">)</span>
+<span class="n">getAllUsers</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sqlite db [</span><span class="si">%s</span><span class="s2">]: </span><span class="si">%d</span><span class="s2"> row(s) impacted!&quot;</span> 
+        <span class="o">%</span> <span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">connection</span><span class="o">.</span><span class="n">total_changes</span><span class="p">))</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 
 

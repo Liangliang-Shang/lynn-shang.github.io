@@ -6,7 +6,7 @@ Slug: python_tutorial
 Author: lshang  
 Summary: The Tutorial of Python Programming  
 
-## 列表解析  
+## List comprehension
 ```python
 # map((lambda x: x**2), xrange(10))
 >>> [ x ** 2 for x in xrange(10) ]

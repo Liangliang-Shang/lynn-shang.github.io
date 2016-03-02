@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="tesla A simple FIX Initiator/Acceptor Demo QuickFIX/J HOME: http://www.quickfixj.org/ QuickFIX/J API: http://www.quickfixj.org/quickfixj/javadoc/1.5.3/ Demo start FIXAcceptor 20160302 19:58:34 ...">
+        <meta name="keywords" content="Java, QuickFIX">
+        <link rel="icon" href="/favicon.ico">
+
+        <title>Tesla - lshang</title>
+
+        <!-- Stylesheets -->
+        <link href="/theme/css/all.min.css" rel="stylesheet">
+        <!-- /Stylesheets -->
+
+        <!-- RSS Feeds -->
+        <!-- /RSS Feeds -->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+    </head>
+
+    <body>
+
+        <!-- Header -->
+    <div class="header-container gradient">
+
+            <!-- Static navbar -->
+            <div class="container">
+                <div class="header-nav">
+                    <div class="header-logo">
+                        <a class="pull-left" href="/"><img class="mr20" src="/logo.svg" alt="">lshang</a>
+                    </div>
+                    <div class="nav pull-right">
+                                <a href="/">Homepage</a>
+                                <a href="/categories.html">Categories</a>
+                                <a href="/tags.html">Tags</a>
+                                <a href="/archives.html">Archives</a>
+                                <a href="/about.html">About</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Static navbar -->
+
+            <!-- Header -->
+    <!-- Header -->
+    <div class="container header-wrapper">
+        <div class="row">
+              <div class="col-lg-12">
+                  <div class="header-content">
+                      <h1 class="header-title">Tesla</h1>
+                      <p class="header-date">By <a href="/author/lshang.html">lshang</a>, Wed 02 March 2016, in category <a href="/category/tesla.html">Tesla</a></p>
+                      <div class="header-underline"></div>
+                      <div class="clearfix"></div>
+                      <p class="pull-right header-tags">
+                          <span class="glyphicon glyphicon-tags mr5" aria-hidden="true"></span>
+<a href="/tag/java.html">Java</a>, <a href="/tag/quickfix.html">QuickFIX</a>                      </p>
+                  </div>
+              </div>
+        </div>
+    </div>
+    <!-- /Header -->
+            <!-- /Header -->
+
+        </div>
+        <!-- /Header -->
+
+
+        <!-- Content -->
+    <div class="container content">
+        <h1>tesla</h1>
+<p>A simple FIX Initiator/Acceptor Demo  <br />
+QuickFIX/J HOME: http://www.quickfixj.org/  <br />
+QuickFIX/J API: http://www.quickfixj.org/quickfixj/javadoc/1.5.3/    </p>
+<h2>Demo</h2>
+<ol>
+<li>start FIXAcceptor</li>
+</ol>
+<div class="highlight"><pre><span class="m">20160302</span> 19:58:34 lshang@elemos:/home/lshang/devel/tesla 
+$ <span class="nb">source</span> bin/startTesla.bash 
+<span class="m">20160302</span> 19:59:00 lshang@elemos:/home/lshang/devel/tesla 
+$ make acceptor 
+<span class="nb">cd</span> /home/lshang/devel/tesla/src <span class="o">&amp;&amp;</span> find . -name <span class="s2">&quot;*.java&quot;</span> -exec javac -d
+/home/lshang/devel/tesla/tmp <span class="o">{}</span> <span class="se">\;</span>
+<span class="nb">cd</span>  /home/lshang/devel/tesla/tmp <span class="o">&amp;&amp;</span> jar cvf tesla.jar com <span class="o">&amp;&amp;</span> mv tesla.jar
+/home/lshang/devel/tesla/lib
+added manifest
+adding: com/<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 0<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 0<span class="o">)(</span>stored 0%<span class="o">)</span>
+adding: com/lshang/<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 0<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 0<span class="o">)(</span>stored 0%<span class="o">)</span>
+adding: com/lshang/tesla/<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 0<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 0<span class="o">)(</span>stored 0%<span class="o">)</span>
+adding: com/lshang/tesla/FIXAcceptorApp.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 770<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 360<span class="o">)(</span>deflated
+53%<span class="o">)</span>
+adding: com/lshang/tesla/order/<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 0<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 0<span class="o">)(</span>stored 0%<span class="o">)</span>
+adding: com/lshang/tesla/order/TeslaOrderList.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 2867<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span>
+1553<span class="o">)(</span>deflated 45%<span class="o">)</span>
+adding: com/lshang/tesla/order/TeslaOrder.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 1195<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 658<span class="o">)(</span>deflated
+44%<span class="o">)</span>
+adding: com/lshang/tesla/FIXAcceptor.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 893<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 516<span class="o">)(</span>deflated 42%<span class="o">)</span>
+adding: com/lshang/tesla/FIXInitiator.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 2988<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 1608<span class="o">)(</span>deflated
+46%<span class="o">)</span>
+adding: com/lshang/tesla/FIXInitiatorApp.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 664<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 325<span class="o">)(</span>deflated
+51%<span class="o">)</span>
+java com/lshang/tesla/FIXAcceptor
+Mar 02, <span class="m">2016</span> 7:59:18 PM quickfix.SessionSchedule &lt;init&gt;
+INFO: <span class="o">[</span>FIX.4.4:FIXAcceptor-&gt;FIXInitiator<span class="o">]</span> daily, 00:00:00-UTC - 00:00:00-UTC
+Mar 02, <span class="m">2016</span> 7:59:19 PM quickfix.mina.SessionConnector startSessionTimer
+INFO: SessionTimer started
+Mar 02, <span class="m">2016</span> 7:59:19 PM quickfix.mina.NetworkingOptions logOption
+INFO: Socket option: <span class="nv">SocketReuseAddress</span><span class="o">=</span><span class="nb">true</span>
+Mar 02, <span class="m">2016</span> 7:59:19 PM quickfix.mina.NetworkingOptions logOption
+INFO: Socket option: <span class="nv">SocketTcpNoDelay</span><span class="o">=</span><span class="nb">true</span>
+Mar 02, <span class="m">2016</span> 7:59:19 PM quickfix.mina.NetworkingOptions logOption
+INFO: Socket option: <span class="nv">SocketSynchronousWrites</span><span class="o">=</span><span class="nb">false</span>
+Mar 02, <span class="m">2016</span> 7:59:19 PM quickfix.mina.NetworkingOptions logOption
+INFO: Socket option: <span class="nv">SocketSynchronousWriteTimeout</span><span class="o">=</span>30000
+Mar 02, <span class="m">2016</span> 7:59:19 PM quickfix.mina.acceptor.AbstractSocketAcceptor
+startAcceptingConnections
+INFO: Listening <span class="k">for</span> connections at 0.0.0.0/0.0.0.0:20160 <span class="k">for</span> session<span class="o">(</span>s<span class="o">)</span>
+<span class="o">[</span>FIX.4.4:FIXAcceptor-&gt;FIXInitiator<span class="o">]</span>
+</pre></div>
+
+
+<ol>
+<li>start FIXInitiator</li>
+</ol>
+<div class="highlight"><pre><span class="m">20160302</span> 20:01:40 lshang@elemos:/home/lshang/devel/tesla 
+$ <span class="nb">source</span> bin/startTesla.bash 
+<span class="m">20160302</span> 20:01:44 lshang@elemos:/home/lshang/devel/tesla 
+$ make initiator 
+<span class="nb">cd</span> /home/lshang/devel/tesla/src <span class="o">&amp;&amp;</span> find . -name <span class="s2">&quot;*.java&quot;</span> -exec javac -d
+/home/lshang/devel/tesla/tmp <span class="o">{}</span> <span class="se">\;</span>
+<span class="nb">cd</span>  /home/lshang/devel/tesla/tmp <span class="o">&amp;&amp;</span> jar cvf tesla.jar com <span class="o">&amp;&amp;</span> mv tesla.jar
+/home/lshang/devel/tesla/lib
+added manifest
+adding: com/<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 0<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 0<span class="o">)(</span>stored 0%<span class="o">)</span>
+adding: com/lshang/<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 0<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 0<span class="o">)(</span>stored 0%<span class="o">)</span>
+adding: com/lshang/tesla/<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 0<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 0<span class="o">)(</span>stored 0%<span class="o">)</span>
+adding: com/lshang/tesla/FIXAcceptorApp.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 770<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 360<span class="o">)(</span>deflated
+53%<span class="o">)</span>
+adding: com/lshang/tesla/order/<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 0<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 0<span class="o">)(</span>stored 0%<span class="o">)</span>
+adding: com/lshang/tesla/order/TeslaOrderList.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 2867<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span>
+1553<span class="o">)(</span>deflated 45%<span class="o">)</span>
+adding: com/lshang/tesla/order/TeslaOrder.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 1195<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 658<span class="o">)(</span>deflated
+44%<span class="o">)</span>
+adding: com/lshang/tesla/FIXAcceptor.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 893<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 516<span class="o">)(</span>deflated 42%<span class="o">)</span>
+adding: com/lshang/tesla/FIXInitiator.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 2988<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 1608<span class="o">)(</span>deflated
+46%<span class="o">)</span>
+adding: com/lshang/tesla/FIXInitiatorApp.class<span class="o">(</span><span class="nv">in</span> <span class="o">=</span> 664<span class="o">)</span> <span class="o">(</span><span class="nv">out</span><span class="o">=</span> 325<span class="o">)(</span>deflated
+51%<span class="o">)</span>
+java com/lshang/tesla/FIXInitiator
+Mar 02, <span class="m">2016</span> 8:01:53 PM quickfix.SessionSchedule &lt;init&gt;
+INFO: <span class="o">[</span>FIX.4.4:FIXInitiator-&gt;FIXAcceptor<span class="o">]</span> daily, 00:00:00-UTC - 00:00:00-UTC
+Mar 02, <span class="m">2016</span> 8:01:54 PM quickfix.mina.NetworkingOptions logOption
+INFO: Socket option: <span class="nv">SocketTcpNoDelay</span><span class="o">=</span><span class="nb">true</span>
+Mar 02, <span class="m">2016</span> 8:01:54 PM quickfix.mina.NetworkingOptions logOption
+INFO: Socket option: <span class="nv">SocketSynchronousWrites</span><span class="o">=</span><span class="nb">false</span>
+Mar 02, <span class="m">2016</span> 8:01:54 PM quickfix.mina.NetworkingOptions logOption
+INFO: Socket option: <span class="nv">SocketSynchronousWriteTimeout</span><span class="o">=</span>30000
+Mar 02, <span class="m">2016</span> 8:01:54 PM quickfix.mina.initiator.IoSessionInitiator &lt;init&gt;
+INFO: <span class="o">[</span>FIX.4.4:FIXInitiator-&gt;FIXAcceptor<span class="o">]</span> <span class="o">[</span>/127.0.0.1:20160<span class="o">]</span>
+Mar 02, <span class="m">2016</span> 8:01:54 PM quickfix.mina.SessionConnector startSessionTimer
+INFO: SessionTimer started
+Mar 02, <span class="m">2016</span> 8:01:54 PM quickfix.mina.initiator.InitiatorIoHandler
+sessionCreated
+INFO: MINA session created <span class="k">for</span> FIX.4.4:FIXInitiator-&gt;FIXAcceptor:
+<span class="nv">local</span><span class="o">=</span>/127.0.0.1:38793, class
+org.apache.mina.transport.socket.nio.SocketSessionImpl,
+<span class="nv">remote</span><span class="o">=</span>/127.0.0.1:20160
+</pre></div>
+
+
+<h2>MessageLog</h2>
+<div class="highlight"><pre>8=FIX.4.49=17035=D34=143=Y49=FIXInitiator52=20160302-12:01:55.09856=FIXAcceptor122=20160302-12:01:5411=TeslaOrder038=100040=244=45.0454=155=60027660=20160302-12:01:54.26110=020
+8=FIX.4.49=10435=434=243=Y49=FIXInitiator52=20160302-12:01:55.09956=FIXAcceptor122=20160302-12:01:5536=3123=Y10=235
+8=FIX.4.49=14435=D34=349=FIXInitiator52=20160302-12:01:59.27856=FIXAcceptor11=TeslaOrder138=1200040=244=15.0454=155=00197960=20160302-12:01:54.26110=035
+8=FIX.4.49=14535=D34=449=FIXInitiator52=20160302-12:02:04.28556=FIXAcceptor11=TeslaOrder238=13400040=244=14.0454=155=00197960=20160302-12:01:54.26110=079
+8=FIX.4.49=14435=D34=549=FIXInitiator52=20160302-12:02:09.28956=FIXAcceptor11=TeslaOrder338=1900040=244=45.9454=155=60027660=20160302-12:01:54.26110=051
+</pre></div>
+
+
+<h2>TelsaOrder</h2>
+<p>TeslaOrder extends NewOrderSingle and default ClOrdID/TransactTime, or maybe
+more fields like Currency/TimeInForce. </p>
+<h2>TelsaOrderList</h2>
+<p>TeslaOrderList reads a csv file and parse the lines containing fields to
+composite an order like Side/Symbol/Price/OrderQty/OrdType</p>
+<h2>FIXInitiator/FIXAcceptor</h2>
+<p>Mostly copied from Banzai.</p>
+
+
+        
+    </div>
+        <!-- /Content --> 
+
+        <!-- Footer -->
+        <div class="footer gradient-2">
+            <div class="container footer-container ">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                        <div class="footer-title">Sitemap</div>
+                        <ul class="list-unstyled">
+                            <li><a href="/archives.html">Archives</a></li>
+                            <li><a href="/tags.html">Tags</a></li>
+                            <li><a href="/authors.html">Authors</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                        <div class="footer-title">Social</div>
+                        <ul class="list-unstyled">
+                            <li><a href="http://www.linkedin.com/in/lynn-shang-b587507b?trk=hp-identity-name" target="_blank">Linkedin</a></li>
+                            <li><a href="https://github.com/Lynn-Shang" target="_blank">GitHub</a></li>
+                            <li><a href="mailto:imshang@126.com" target="_blank">Email</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                        <div class="footer-title">Links</div>
+                        <ul class="list-unstyled">
+                            <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+                            <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+                            <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+                        </ul>
+                    </div> 
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <p class="pull-right text-right">
+                            <small><em>Proudly powered by <a href="http://docs.getpelican.com/" target="_blank">pelican</a></em></small><br/>
+                            <small><em>Theme and code by <a href="https://github.com/molivier" target="_blank">molivier</a></em></small><br/>
+                            <small>&copy; lshang 2016</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Footer -->
+    </body>
+</html>

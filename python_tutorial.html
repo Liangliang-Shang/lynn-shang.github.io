@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="List comprehension # map((lambda x: x**2), xrange(10)) &gt;&gt;&gt; [ x ** 2 for x in xrange(10) ] [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] &gt;&gt;&gt; L = [&#39;1&#39;, &#39;a&#39;, 2, &#39;b&#39;, &#39;3&#39;, &#39;c&#39;] # map((lambda x: int(x) if ...">
+        <meta name="description" content="String &gt;&gt;&gt; &#34;Let&#39;s go!&#34; &#34;Let&#39;s go!&#34; &gt;&gt;&gt; &#39;&#34;Hello, world!&#34; she said&#39; &#39;&#34;Hello, world!&#34; she said&#39; &gt;&gt;&gt; &#39;Let\&#39;s go!&#39; &#34;Let&#39;s go!&#34; &gt;&gt;&gt; &#39;Let\&#39;s go!&#39; &#34;Let&#39;s go!&#34; # repr creats a string that is representation ...">
         <meta name="keywords" content="Python">
         <link rel="icon" href="/favicon.ico">
 
@@ -56,7 +56,7 @@
               <div class="col-lg-12">
                   <div class="header-content">
                       <h1 class="header-title">Python Tutorial</h1>
-                      <p class="header-date">By <a href="/author/lshang.html">lshang</a>, Wed 24 February 2016, in category <a href="/category/python.html">Python</a></p>
+                      <p class="header-date">By <a href="/author/lshang.html">lshang</a>, Fri 04 March 2016, in category <a href="/category/python.html">Python</a></p>
                       <div class="header-underline"></div>
                       <div class="clearfix"></div>
                       <p class="pull-right header-tags">
@@ -75,7 +75,42 @@
 
         <!-- Content -->
     <div class="container content">
-        <h2>List comprehension</h2>
+        <h2>String</h2>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;Let&#39;s go!&quot;</span>
+<span class="s2">&quot;Let&#39;s go!&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;&quot;Hello, world!&quot; she said&#39;</span>
+<span class="s1">&#39;&quot;Hello, world!&quot; she said&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Let</span><span class="se">\&#39;</span><span class="s1">s go!&#39;</span>
+<span class="s2">&quot;Let&#39;s go!&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Let</span><span class="se">\&#39;</span><span class="s1">s go!&#39;</span>
+<span class="s2">&quot;Let&#39;s go!&quot;</span>
+<span class="c1"># repr creats a string that is representation of the value as a legal</span>
+<span class="c1"># expression</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">repr</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="s1">&#39;Hello, world!&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">repr</span><span class="p">(</span><span class="il">10000L</span><span class="p">)</span>
+<span class="il">10000L</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;&#39;&#39;This is a very long string.</span>
+<span class="s1">... It continues here. </span>
+<span class="s1">... And it&#39;s not over yet.</span>
+<span class="s1">... &quot;Hello, world!&quot;</span>
+<span class="s1">... Still here.&#39;&#39;&#39;</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">very</span> <span class="nb">long</span> <span class="n">string</span><span class="o">.</span>
+<span class="n">It</span> <span class="n">continues</span> <span class="n">here</span><span class="o">.</span> 
+<span class="n">And</span> <span class="n">it</span><span class="s1">&#39;s not over yet.</span>
+<span class="s2">&quot;Hello, world!&quot;</span>
+<span class="n">Still</span> <span class="n">here</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;Hello,</span><span class="se">\n</span><span class="s1">world!&#39;</span>
+<span class="n">Hello</span><span class="p">,</span>
+<span class="n">world</span><span class="err">!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">r&#39;Hello,\nworld!&#39;</span>
+<span class="n">Hello</span><span class="p">,</span>\<span class="n">nworld</span><span class="err">!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">r&#39;Let</span><span class="se">\&#39;</span><span class="s1">s go!&#39;</span>
+<span class="n">Let</span>\<span class="s1">&#39;s go!</span>
+</pre></div>
+
+
+<h2>List comprehension</h2>
 <div class="highlight"><pre><span class="c1"># map((lambda x: x**2), xrange(10))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">]</span>
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>

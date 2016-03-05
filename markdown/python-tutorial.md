@@ -1,10 +1,45 @@
 Title: Python Tutorial
-Date: 2016-02-24 20:20  
+Date: 2016-03-04 20:20  
 Category: Python  
 Tags: Python  
 Slug: python_tutorial   
 Author: lshang  
 Summary: The Tutorial of Python Programming  
+
+## String  
+```python  
+>>> "Let's go!"
+"Let's go!"
+>>> '"Hello, world!" she said'
+'"Hello, world!" she said'
+>>> 'Let\'s go!'
+"Let's go!"
+>>> 'Let\'s go!'
+"Let's go!"
+# repr creats a string that is representation of the value as a legal
+# expression
+>>> print repr("Hello, world!")
+'Hello, world!'
+>>> print repr(10000L)
+10000L
+>>> print '''This is a very long string.
+... It continues here. 
+... And it's not over yet.
+... "Hello, world!"
+... Still here.'''
+This is a very long string.
+It continues here. 
+And it's not over yet.
+"Hello, world!"
+Still here.
+>>> print 'Hello,\nworld!'
+Hello,
+world!
+>>> print r'Hello,\nworld!'
+Hello,\nworld!
+>>> print r'Let\'s go!'
+Let\'s go!
+```
 
 ## List comprehension
 ```python
